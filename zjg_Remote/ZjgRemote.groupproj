@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{457AE46E-76AE-4C93-8E40-1BAC7161E833}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ZjgRenote.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ZjgRenote">
+        <MSBuild Projects="ZjgRenote.dproj"/>
+    </Target>
+    <Target Name="ZjgRenote:Clean">
+        <MSBuild Projects="ZjgRenote.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ZjgRenote:Make">
+        <MSBuild Projects="ZjgRenote.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ZjgRenote"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ZjgRenote:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ZjgRenote:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
